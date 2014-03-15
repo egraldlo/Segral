@@ -24,7 +24,6 @@ object Hashjoin{
 	val in = new FileInputStream(file)
 	val data=new DataInputStream(in)
     
-//    println(data.readLong())//readLong())  
     println(data.readLine())    
     println(data.readLine())    
 
@@ -38,27 +37,5 @@ object Hashjoin{
     println(data.readInt())
 
     println(data.readInt())
-//    println(data.readLong())
-//    println(data.readInt())
-//    println(data.readInt())
-//    println(data.readInt())
-
-    
-    
-//    val bytePer=new Array[Byte](32)
-//    data.read(bytePer,0,8)
-//    
-//    val i1=new String(bytePer,0,8)
-//    
-//    println(i1.toString())
-//    
-//    println(bytePer.toString())
-    
-//    println(Integer.valueOf(bytePer.toString(), 2))
-//    val item0=new Long(bytePer,0,8)
-//    println(item0)
-//  val bytes=new Array[Byte](file.length().toInt)
-//  val indata=in.read(bytes)
-//  print(indata.toString)
   }
 }

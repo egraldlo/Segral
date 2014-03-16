@@ -1,8 +1,9 @@
-package common
+package hashjoin
 
 import scala.collection.mutable._
 
-class HashTable {
+class HashTable(buckets:Int) {
+  
   class HTIterator(bucket:Int){
     private var i=0
     def getTuple():Int={
@@ -12,20 +13,25 @@ class HashTable {
       i+=1
     }
   }
-  val HASH_BUCKETS=10
+  
+  val HASH_BUCKETS=buckets
   private var hashTable=new Array[ArrayBuffer[Int]](HASH_BUCKETS)
+  
   def init(){
 //    	private var hashTable=new Array[ArrayBuffer[Int]](10) why this is wrong
     for(i <- 0 until HASH_BUCKETS)
       hashTable(i)=new ArrayBuffer[Int]
     println("hashtable inited!")
   }
+  
   def test(){//how object and class access the private member each other
   }
+  
   def insert(bucket: Int, key: Int){//must support generic
     hashTable(bucket)+=key
     println("haha")
   }
+  
   def placeIterator(bucket:Int):HTIterator={
     new HTIterator(bucket)
   }
@@ -33,7 +39,7 @@ class HashTable {
 
 object HashTable{
   private val test1=111
-  val hashtable=new HashTable// you must new a instance
+  val hashtable=new HashTable(10)// you must new a instance
   def main(args:Array[String])={
     hashtable.init
     for(i <- 1 to 5)

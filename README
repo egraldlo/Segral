@@ -1,2 +1,4 @@
 for spark and scala, and implement three join algorithms.
-alive?
+1, first support the single machine
+2, second support the wildcard 
+3, last support the distribute machines by using akka

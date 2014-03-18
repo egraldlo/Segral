@@ -1,7 +1,8 @@
-package hashjoin
+package db.join.hashjoin
 
 import common.Reader
-import scala.io.Source
+import db.join.hashjoin.HashTable
+port common.HashTable
 
 class Hashjoin {
   

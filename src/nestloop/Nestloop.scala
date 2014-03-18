@@ -1,5 +1,0 @@
-package nestloop
-
-class Nestloop {
-
-}

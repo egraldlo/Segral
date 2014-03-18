@@ -1,5 +1,0 @@
-package sortmerge
-
-class Sortmerge {
-
-}

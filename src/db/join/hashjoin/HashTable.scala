@@ -1,4 +1,4 @@
-package hashjoin
+package db.join.hashjoin
 
 import scala.collection.mutable._
 

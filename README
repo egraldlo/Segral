@@ -5,6 +5,8 @@ for spark and scala, and implement three join algorithms.
 
 note:
 1, some actor mode added and then distributed actor mode
+2, by using sbt
 
 some spark info>>
 spark source code development and spark application development
+

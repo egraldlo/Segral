@@ -1,6 +1,6 @@
-package db.join.hashjoin
+package main.scala.db.join.hashjoin
 
-import common.Reader
+import main.scala.common.Reader
 
 class Hashjoin {
   

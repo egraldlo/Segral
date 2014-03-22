@@ -1,4 +1,4 @@
-package actor
+package main.scala.actor
 
 class akkaActorTest {
 

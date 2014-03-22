@@ -1,4 +1,4 @@
-package test
+package test.scala
 
 import scala.io._
 

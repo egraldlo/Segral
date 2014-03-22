@@ -1,4 +1,4 @@
-package actor
+package main.scala.actor
 
 //最基本的scala库中的actor
 import scala.actors.Actor._

@@ -1,4 +1,4 @@
-package common
+package main.scala.common
 
 abstract class Typer{
   val typeNo:Int

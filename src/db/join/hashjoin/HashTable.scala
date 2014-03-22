@@ -5,7 +5,9 @@ import scala.collection.mutable._
 class HashTable(buckets:Int) {
   
   class HTIterator(bucket:Int){
+    //you must init the member
     private var i=0
+    
     def getTuple():Int={
 	  hashTable(bucket)(i)
     }

@@ -1,8 +1,6 @@
 package db.join.hashjoin
 
 import common.Reader
-import db.join.hashjoin.HashTable
-port common.HashTable
 
 class Hashjoin {
   

@@ -1,0 +1,128 @@
+package ecnu.software;
+import java.sql.*; 
+public class Test{
+	public static void main(String[] srg) {
+		String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+		String dbURL = "jdbc:sqlserver://localhost:1433 ; DatabaseName = 20140402";
+		String userName = "sa";
+		String userPwd = "zhangqian";
+		Connection dbConn;
+		try {
+			Class.forName(driverName);
+			dbConn = DriverManager.getConnection(dbURL, userName, userPwd);
+			
+			//executeQuery
+			Statement stat1=dbConn.createStatement();
+			String tableName = "Course";
+			ResultSet rs=stat1.executeQuery("SELECT * FROM "+tableName);
+			String courseName = "";
+			while(rs.next()){
+				courseName= rs.getString("courseName");
+				System.out.println(courseName); 
+			}
+			rs.close();
+			stat1.close();
+			
+			//executeUpdate
+			Statement stat2=dbConn.createStatement();
+			String command="update Course set courseName='DB3' where courseId = 1";
+			stat2.executeUpdate(command);
+			stat2.close();
+			
+			System.out.println("Connection Successful!");
+			dbConn.close();
+		} 
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
+}
+
+
+
+
+
+//最近几天写论文，实在是写不动了，在此写一个简单的教程，不是故意要写这个的，要给人讲，没办法，虽然对sql server这些微软软件用起来很不习惯。
+//1，配置eclipse
+//
+//首先下载eclipse版本，推荐下载eclipse 4.2 juno，我用的是这个，然后下载jdk-1.7，现在java 8都出来了，注意下载两个东西的时候看看操作系统版本。下载之后解压eclipse就可以使用。然后安装jdk。
+//
+//2，添加sqljdbc4.jar
+//
+//下面添加jdbc的jar包到eclipse的路径中，注意这里是sqljdbc4.jar，开始我用sqljdbc.jar报错了，所以2008版本推荐使用sqljdbc4.jar，我放在这里（sqljdbc4.jar），猛戳下载。下载之后将sqljdbc4.jar路径配置到你机器的环境变量中。win7中是右击计算机-》高级系统设置-》高级-》环境变量-》新建classpath-》编辑-》加入sqljdbc4.jar的路径。同时在eclipse中的Window-》Preferences-》installed jres-》添加你的sqljdbc4.jar到已有的jre中。
+//
+//3，配置sql server 2008
+//
+//首先打开Sql server 配置管理器，右击Sql server网络配置下的MSSQLSERVER的协议，然后右击TCP/IP，然后将IPALL的端口改为1433。
+//然后进入sql server management studio。右击资源管理器中你的连接-》属性-》安全性-》勾选sql server和windows身份验证模式，然后进入资源管理器-》安全性-》登录名-》右击sa-》修改密码用于java程序连接（可选）-》状态选择授予和启用。然后回到资源管理器-》右击你的连接-》重新启动。
+//
+//4，java连接程序
+//
+//上代码：连接数据库的代码
+//package db.software;
+//import java.sql.*; 
+//public class Test{
+//	public static void main(String[] srg) {
+//		String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//		String dbURL = "jdbc:sqlserver://localhost:1433 ; DatabaseName = db001";
+//		String userName = "sa";
+//		String userPwd = "yourpasswd";
+//		Connection dbConn;
+//		try {
+//			Class.forName(driverName);
+//			dbConn = DriverManager.getConnection(dbURL, userName, userPwd);
+//			System.out.println("Connection Successful!");
+//			dbConn.close();
+//			} 
+//		catch (Exception e) 
+//		{
+//			e.printStackTrace();
+//		}
+//	}
+//}
+//
+//5，写查询或者事务
+//上代码：事务或者查询
+//package db.software;
+//import java.sql.*; 
+//public class Test{
+//	public static void main(String[] srg) {
+//		String driverName = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+//		String dbURL = "jdbc:sqlserver://localhost:1433 ; DatabaseName = 20140402";
+//		String userName = "sa";
+//		String userPwd = "zhangqian";
+//		Connection dbConn;
+//		try {
+//			Class.forName(driverName);
+//			dbConn = DriverManager.getConnection(dbURL, userName, userPwd);
+//			
+//			//executeQuery
+//			Statement stat1=dbConn.createStatement();
+//			String tableName = "Course";
+//			ResultSet rs=stat1.executeQuery("SELECT * FROM "+tableName);
+//			String courseName = "";
+//			while(rs.next()){
+//				courseName= rs.getString("courseName");
+//				System.out.println(courseName); 
+//			}
+//			rs.close();
+//			stat1.close();
+//			
+//			//executeUpdate
+//			Statement stat2=dbConn.createStatement();
+//			String command="update Course set courseName='DB3' where courseId = 1";
+//			stat2.executeUpdate(command);
+//			stat2.close();
+//			
+//			System.out.println("Connection Successful!");
+//			dbConn.close();
+//		} 
+//		catch (Exception e) 
+//		{
+//			e.printStackTrace();
+//		}
+//	}
+//}
+//
+//本文完
